@@ -1,0 +1,78 @@
+
+  <!-- <div ng-repeat="consultorUp in consultor.consultoresUp" class="modal fade" id="myModalUpdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabelUpdate"> -->
+
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <button  ng-click="usuario.cancelUsuario()" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+              <h4 class="modal-title">Actualizar Usuario</h4>
+          </div>
+
+          <form method="post" name="formUsuarioUpdate" class="form-horizontal" >
+
+              <div class="modal-body">
+                  <div class="form-group">
+                      <div class="col-sm-3">
+                          <input type="text" class="form-control" id="inputName" placeholder="*Nombre..." ng-model="usuarios.actualizarUsuario.name">
+                      </div>
+                      <div class="col-sm-9">
+                          <input type="text" class="form-control" id="inputUsername" placeholder="*Usuario..." ng-model="usuarios.actualizarUsuario.username">
+                      </div>
+                  </div>
+
+                  <div class="form-group">
+                      <div class="col-sm-12">
+                          <input type="email" class="form-control" id="inputEmail" placeholder="*Email..." for="inputError" ng-model="usuarios.actualizarUsuario.email" required oninvalid="this.setCustomValidity('Ingresar email valido')">
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <div class="col-sm-12">
+                          <input type="text" class="form-control" id="inputDateupdated" placeholder="Fecha actualizacion..." ng-model="usuarios.actualizarUsuario.address">
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <div class="col-sm-3">
+                          <input type="text" class="form-control" id="inputDatecreate" placeholder="Fecha de Creacion..." ng-model="consultor.actualizarConsultor.phone">
+                      </div>
+                  </div>
+
+                  <div class="form-group" ng-if="false">
+                      <div class="col-sm-12">
+                          <input ng-disabled="true" type="text" class="form-control" id="inputIdbusiness" placeholder="Codigo Empresa..." ng-value="main.user.idBusiness" ng-model="usuarios.actualizarUsuario.idBusiness">
+                      </div>
+                  </div>              
+
+
+              </div>
+
+
+              <div class="modal-footer">
+                  <div ng-if="usuarios.error" class="alert alert-dismissible alert-danger alert-col-sm-2" style="text-align:center">
+                      <button type="button" class="close" data-dismiss="alert">&times;</button>
+                      <strong>Error!</strong> <a href="#" class="alert-link">{{usuarios.error }}</a>
+                  </div>
+                  <div class="alert alert-dismissible alert-success alert-col-sm-2" style="text-align:center">
+                      <button type="button" class="close" data-dismiss="alert">&times;</button>
+                      <strong>Exitos!</strong> <a href="#" class="alert-link">{{usuarios.message }}</a>
+                  </div>
+
+                  <div class="form-group">
+
+            
+                  <div class="col-sm-1">
+                  </div>
+                  <div class="col-sm-8" style="text-align:right;">
+
+                                          <button type="button" class="btn btn-default"  ng-click="usuarios.cancelUsuario()"  data-dismiss="modal" >Cancelar</button>
+                                          <button ng-disabled="formUsuarioUpdate.$invalid" type="submit" class="btn btn-primary" data-dismiss="modal" ng-click="usuarios.updateUsuario(actualizarUsuario)">Aceptar</button>
+                  </div>
+                </div>
+
+
+              </div>
+          </form>
+
+
+      </div>
+  </div>
+<!-- </div> -->

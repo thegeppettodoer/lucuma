@@ -1,0 +1,102 @@
+<div ng-if="main.loggedIn" ng-controller="UsuariosController as usuarios">
+
+<div class="col-md-12">
+    <ol class="breadcrumb">
+        <li><a href="/">Dojo</a></li>
+        <li class="active">Usuarios</li>
+    </ol>
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading clearfix">
+                <div class="pull-left"><span>Mantenimiento de Usuarios</span></div>
+                <div class="pull-right">
+                    <a href="" data-toggle="modal" data-target="#myModal">
+                        <span class="glyphicon glyphicon-file"></span>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="panel-body">
+                <div class="horizontal_scroll">
+
+                    <table class="table table-bordered table-hover table-responsive">
+                        <thead>
+                            <tr>
+                                <td>#</td>
+                                <td><a href="#" ng-click="sortType = 'name'">Nombre</></td>
+                                <td><a href="#" ng-click="sortType = 'username'">Usuario</></td>
+                                <td><a href="#" ng-click="sortType = 'idBusiness'">IdBusiness</></td>
+                                <td>Email</td>
+                                <td>Fecha Actualizacion</td>
+                                <td>Fecha de Crecion</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           <!-- | orderBy: 'dateCreate':true -->
+
+
+                            <tr ng-repeat="each in usuarios.usuarios | reverse|  orderBy:sortType:sortReverse">
+                                <td style="background-color: #f5f5f5">{{ $index+1 }}</td>
+                                <td>{{each.name}}</td>
+                                <td>{{each.username}}</td>
+                                <td>{{each.idBusiness}}</td>
+                                <td>{{each.email}}</td>
+                                <td>{{each.dateUpdated}}</td>
+                                <td>{{each.dateCreate}}</td>
+                                <td style="padding:5px">
+                                    <!-- <a href="" data-toggle="modal" data-target="#myModal">
+                                        <span class="glyphicon glyphicon-pencil"></span>
+                                    </a> -->
+                                    <!-- <a href="" data-toggle="modal" data-target="#myModal">
+                                        <span class="glyphicon glyphicon-trash"></span>
+                                    </a> -->
+                                    <button ng-click="usuarios.selectUsuario(each)" data-toggle="modal" data-target="#myModalUpdate" class="btn btn-primary btn-xs btn-info"><span class="glyphicon glyphicon-pencil"></span></button>
+                                    <button ng-click="usuarios.selectUsuario(each)" data-toggle="modal" data-target="#myModalDelete" class="btn btn-primary btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+    <!-- <a href="#" data-toggle="popover" title="Popover Header" data-content="Some content inside the popover">Toggle popover</a> -->
+
+
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div ng-include="'app/views/pages/usuario-new.html'">
+  </div>
+</div>
+
+
+
+
+
+<div class="modal fade" id="myModalUpdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabelUpdate">
+  <div ng-include="'app/views/pages/usuario-update.html'">
+  </div>
+</div>
+
+
+<div class="modal fade" id="myModalDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabelDelete">
+  <div ng-include="'app/views/pages/usuario-Delete.html'">
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
